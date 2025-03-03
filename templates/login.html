@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='shield.png') }}" alt="Logo" class="logo">
+        <h2>تسجيل الدخول</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            {{ csrf_token() }}
+            <input type="text" name="username" placeholder="اسم المستخدم" required>
+            <input type="password" id="password" name="password" placeholder="كلمة المرور" required>
+            
+            <div class="password-strength">
+                <div id="progress-bar"></div>
+                <p id="strength">⚡ قوة كلمة المرور</p>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="primary-btn">تسجيل الدخول</button>
+                <button type="button" onclick="generatePassword()" class="secondary-btn">توليد كلمة مرور</button>
+                <button type="button" onclick="copyPassword()" class="secondary-btn">نسخ</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
