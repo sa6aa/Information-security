@@ -1,0 +1,188 @@
+/* إعدادات أساسية */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  background: #f9f9f9;
+}
+
+/* تنسيق الحاوية الرئيسية للمحتوى */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* الهيدر والفوتر المشترك */
+header {
+  background: #003366;
+  color: #fff;
+  padding: 10px 20px;
+}
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5em;
+  margin: 0;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ffcc00; /* لون مختلف عند الوقوف على الرابط */
+}
+footer {
+  background: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+footer p {
+  margin: 5px;
+}
+
+/* نمط القسم الترحيبي في الصفحة الرئيسية */
+.hero {
+  background: linear-gradient(135deg, #4f8cff, #72c6ef);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero-title {
+  animation: fadeInDown 1s ease; /* حركة ظهور من الأعلى */
+}
+.hero-subtitle {
+  animation: fadeIn 2s ease; /* حركة ظهور تدريجية */
+}
+.hero-actions .btn {
+  margin: 10px;
+}
+
+/* تنسيق العناوين الفرعية والنص */
+h2 {
+  margin: 20px 0;
+}
+.tool-section {
+  margin: 20px 0;
+}
+.tool-section h3 {
+  margin: 10px 0;
+}
+
+/* تنسيق الأزرار */
+.btn {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.btn.alt {
+  background: #555;
+}
+.btn.alt:hover {
+  background: #333;
+}
+
+/* تنسيق الحقول النصية والنماذج */
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+textarea {
+  min-height: 100px;
+}
+
+/* تنسيق قسم الدردشة */
+#chat-window {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.chat-controls {
+  display: flex;
+}
+.chat-controls input {
+  flex: 1;
+}
+.chat-controls button {
+  margin-left: 5px;
+}
+/* رسائل الدردشة */
+.message {
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 4px;
+  max-width: 80%;
+}
+.message.user {
+  background: #cce4ff;
+  align-self: flex-end;
+  text-align: right;
+}
+.message.bot {
+  background: #e8e8e8;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* تحسين الاستجابة للشاشات الصغيرة */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+  .chat-controls {
+    flex-direction: column;
+  }
+  .chat-controls button {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+  
+/* تعريف الحركات (Animations) */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
